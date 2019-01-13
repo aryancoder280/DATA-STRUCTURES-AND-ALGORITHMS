@@ -72,28 +72,6 @@ int main()
         }
 
         sort(arr,arr+n);
-       /* queue<int>p;
-        for(int j=0;j<n;j++)
-        {  if(!p.empty())
-            {
-                p.push(arr[j]);
-               count++;
-            }
-        else
-        {  int top=p.front();
-          p.pop();
-          if(top==arr[j])
-          {
-             ;
-
-          }
-          else
-          {
-              count++;
-              p.push(arr[j]);
-          }
-          }
-        }*/
         for(int j=0;j<n;j++)
         {
             if(j==0)
