@@ -1,0 +1,57 @@
+/*
+Find the number of leaf nodes in a full k-ary tree of height m.
+
+Input:
+First line contains an integer T, number of test cases. Each line of the test case contains two integer k and m.
+
+Output:
+Print the number of leafs under modulo 10^9+7.
+
+Constraints:
+1<=T<=10^4
+1<=k<=100
+0<=m<=1000
+
+Example:
+Input
+1
+2 2
+Output:
+4
+
+Explanation:
+A full Binary tree of height 2 has 4 leaf nodes.
+*/
+//solution
+#include <iostream>
+#include<cmath>
+using namespace std;
+typedef unsigned   long long	int ll;
+int main() {
+	//code
+  ll t;
+	cin>>t;
+	for(int i=0;i<t;i++)
+	{
+	ll k;
+	    cin>>k;//k of k-ary tree
+	  ll h;
+	    cin>>h;//height of tree
+    ll val=1;
+	   ll v=1000000007;//question demand
+	   //NOTE: Here we have to use the modulus property to calculate the k^h
+     while(h)
+       {
+           if(h%2==1)
+           {
+               val=(val*k)%v;
+               h--;
+           }
+           k=(k*k)%v;
+           h=h/2;
+       }
+
+       cout<<val%v<<endl;
+	}
+	return 0;
+}
