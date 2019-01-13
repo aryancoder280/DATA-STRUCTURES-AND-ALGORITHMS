@@ -1,2 +1,2 @@
 # DATA-STRUCTURES-AND-ALGORITHMS-FOR-COMPETITVE-PROGRAMMING
-Data structures and Algorithms in C++. Let's make this repository Amazing for Algo Geeks
+Data structures, Algorithms And Important Questions With Solution in C++. Let's make this repository Amazing for Algo Geeks.
