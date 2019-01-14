@@ -43,7 +43,9 @@ void insert(vector<int>&v,int n,int i,int k)
  int h;
  cout<<"enter height of tree=";
  cin>>h;
- int total_nodes=pow(k,h);..for a complete k ary tree total number of nodes=k^h
+     //for a complete k ary tree total number of nodes=((k^(h+1)-1)/(k-1))
+ int total_nodes=pow(k,h+1)-1;
+     total_nodes=total_nodes/(k-1);
  vector<int>v(total_nodes,-1);
  int n;
  int count=0;
