@@ -63,9 +63,9 @@ class tree
  {
      if(!root)
         return;
-     preorder(root->left);
-     cout<<root->data<<" ";
-     preorder(root->right);
+  cout<<root->data<<" ";   
+  preorder(root->left);
+  preorder(root->right);
      return;
  }
  
