@@ -42,7 +42,7 @@ node*temp=unbalanced;
           t[1]='r';
             unbalanced=unbalanced->right;
       }
-      cout<<t[0]<<" "<<t[1]<<endl;
+
 //four cases
 if(t[0]=='l'&&t[1]=='l')//left rotation
 {
@@ -124,10 +124,11 @@ else if(t[0]=='l'&&t[1]=='r')
         t->left=t1;
         parent->left=t;
         }
+
        node*t=temp->left;
        temp->left=t->right;
        t->right=temp;
-       parent->right=t;
+       parent->left=t;
         return;
 
     }
@@ -156,6 +157,20 @@ else
     }
     else
     {
+         {
+        node*t1=temp->right;
+        node*parent=temp;
+        node*t=t1->left;
+        t1->left=t->right;
+        t->right=t1;
+        parent->right=t;
+        }
+
+       node*t=temp->right;
+       temp->right=t->left;
+       t->left=temp;
+       parent->right=t;
+        return;
 
     }
 }
@@ -169,7 +184,7 @@ void preorder(node*root)
     preorder(root->right);
 
 }
-bool find(node*temp,node*root,int key,node*&unbalance,node*&parent)
+bool find(node*&temp,node*root,int key,node*&unbalance,node*&parent)
 {
     if(root->data==key)
     {
@@ -188,13 +203,14 @@ bool find(node*temp,node*root,int key,node*&unbalance,node*&parent)
             }
     else
         {unbalance=root;
-          cout<<"before rotation\n";
+          rotate(temp,unbalance,key,parent);
+          /*cout<<"before rotation\n";
           preorder(temp);
           cout<<endl;
-          rotate(temp,unbalance,key,parent);
+
          cout<<"after rotation\n";
          preorder(temp);
-             cout<<endl;
+             cout<<endl;*/
             return true;
         }
         }
@@ -212,13 +228,14 @@ bool find(node*temp,node*root,int key,node*&unbalance,node*&parent)
             }
     else
         {unbalance=root;
-        cout<<"before rotation\n";
+        rotate(temp,unbalance,key,parent);
+        /*cout<<"before rotation\n";
           preorder(temp);
           cout<<endl;
-          rotate(temp,unbalance,key,parent);
+
          cout<<"after rotation\n";
          preorder(temp);
-         cout<<endl;
+         cout<<endl;*/
             return true;
         }
         }
@@ -293,7 +310,10 @@ int main()
             root=insert(root,n);
         }
     }while(n!=-1);
+    preorder(root);
+    cout<<endl;
     inorder(root);
+
 
 }
 
